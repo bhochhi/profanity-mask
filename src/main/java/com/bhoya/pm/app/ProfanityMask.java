@@ -1,17 +1,22 @@
 package com.bhoya.pm.app;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+import static com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 public class ProfanityMask {
+    @JsonProperty(access = Access.WRITE_ONLY)
     private String text;
+
+    @JsonProperty(access = Access.READ_ONLY)
     private String maskedText;
 
+    @JsonProperty(access = Access.WRITE_ONLY)
     private List<String> whiteList;
 
-    @JsonIgnore
+
     public String getText() {
         return text;
     }
@@ -24,12 +29,10 @@ public class ProfanityMask {
         return maskedText;
     }
 
-    @JsonIgnore
     public void setMaskedText(String maskedText) {
         this.maskedText = maskedText;
     }
 
-    @JsonIgnore
     public List<String> getWhiteList() {
         return whiteList;
     }
