@@ -1,4 +1,4 @@
-package com.bhoya.pm.app;
+package com.bhoya.pm.app.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
