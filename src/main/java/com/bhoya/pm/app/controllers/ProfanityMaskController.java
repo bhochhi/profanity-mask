@@ -13,9 +13,8 @@ public class ProfanityMaskController {
     @Autowired
     ProfaneMaskService profaneMaskService;
 
-    @RequestMapping(value = "/profanitymask", method = RequestMethod.POST)
+    @RequestMapping(value = "/profanitymask", method = RequestMethod.PUT)
     public ProfanityMask maskProfanity(@RequestBody ProfanityMask pm){
-        System.out.println("---------------"+pm.getText());
         String masked = profaneMaskService.getMasked(pm.getText(),pm.getWhiteList());
         pm.setMaskedText(masked);
         return pm;

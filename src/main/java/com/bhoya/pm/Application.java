@@ -1,6 +1,7 @@
 package com.bhoya.pm;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -20,33 +21,23 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 @SpringBootApplication
 @ComponentScan("com.bhoya.pm.app")
+@EnableSwagger2
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
     }
-}
 
-@Configuration
-@EnableSwagger2
-@Component
-class SwaggerConfig extends WebMvcConfigurationSupport {
+
     @Bean
     public Docket profanceMaskApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.bhoya.pm.app.controllers"))
-                .paths(regex("/p.*"))
+                .paths(regex("/profanitymask.*"))
                 .build();
 
     }
-    @Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
 
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
 }
 
