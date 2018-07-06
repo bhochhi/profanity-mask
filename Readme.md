@@ -1,20 +1,8 @@
+**Sample API built with** 
 
-Profanity Masking Service
----
-
-API
-----
-* Get Masked Text
-**input schema**:
-    {
-        text:String,
-        whitelist:[String],
-        lang:String
-    }
-
-**output schema**:
-    {
-        maskedText:String
-    }
-
+- [x] Spring boot 5  
+- [x] Actuator  
+- [x] Swagger  2
+- [ ] Spring Security
+  
 
