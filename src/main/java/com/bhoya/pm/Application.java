@@ -20,11 +20,10 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 
 @SpringBootApplication
-@ComponentScan("com.bhoya.pm")
-public class Application extends SpringBootServletInitializer {
+public class Application{
 
     @Autowired
-    SwaggerConfig config; //OR you can directly autowired Docket Bean
+    SwaggerConfig swaggerConfig; //OR you can directly autowired Docket Bean
 
 //    @Autowired
 //    Docket docket;
