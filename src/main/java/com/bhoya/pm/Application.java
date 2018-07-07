@@ -20,24 +20,17 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 
 @SpringBootApplication
-@ComponentScan("com.bhoya.pm.app")
-@EnableSwagger2
+@ComponentScan("com.bhoya.pm")
 public class Application extends SpringBootServletInitializer {
+
+    @Autowired
+    SwaggerConfig config; //OR you can directly autowired Docket Bean
+
+//    @Autowired
+//    Docket docket;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
     }
-
-
-    @Bean
-    public Docket profanceMaskApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bhoya.pm.app.controllers"))
-                .paths(regex("/profanitymask.*"))
-                .build();
-
-    }
-
 }
 
