@@ -20,7 +20,10 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 
 @SpringBootApplication
-public class Application{
+public class Application {
+
+    @Autowired
+    SpringSecurityConfig springSecurityConfig;
 
     @Autowired
     SwaggerConfig swaggerConfig; //OR you can directly autowired Docket Bean
@@ -29,7 +32,7 @@ public class Application{
 //    Docket docket;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(Application.class, args);
     }
 }
 
